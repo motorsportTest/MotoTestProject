@@ -57,6 +57,10 @@ extension StoriesViewController: StoriesView{
     func setStories(_ stories: [Story]) {
         self.stories = stories
     }
+    
+    func fetchedError(_ error: Error) {
+        alert(text: error.localizedDescription)
+    }
 }
 
 extension StoriesViewController: UITableViewDataSource{

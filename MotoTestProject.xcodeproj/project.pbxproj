@@ -17,6 +17,10 @@
 		5B712E1021EF717F009D3A31 /* StoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E0F21EF717F009D3A31 /* StoriesPresenter.swift */; };
 		5B712E1321EF71EF009D3A31 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1221EF71EF009D3A31 /* Feed.swift */; };
 		5B712E1521EF724C009D3A31 /* StoriesFeedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1421EF724C009D3A31 /* StoriesFeedEnum.swift */; };
+		5B712E1A21EF81CC009D3A31 /* FetchDataSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1821EF81CC009D3A31 /* FetchDataSevice.swift */; };
+		5B712E1B21EF81CC009D3A31 /* NetworkFetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1921EF81CC009D3A31 /* NetworkFetchDataService.swift */; };
+		5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */; };
+		5B712E2021EF9415009D3A31 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1F21EF9415009D3A31 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		5B712E0F21EF717F009D3A31 /* StoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesPresenter.swift; sourceTree = "<group>"; };
 		5B712E1221EF71EF009D3A31 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		5B712E1421EF724C009D3A31 /* StoriesFeedEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesFeedEnum.swift; sourceTree = "<group>"; };
+		5B712E1821EF81CC009D3A31 /* FetchDataSevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataSevice.swift; sourceTree = "<group>"; };
+		5B712E1921EF81CC009D3A31 /* NetworkFetchDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFetchDataService.swift; sourceTree = "<group>"; };
+		5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyURLRequest.swift; sourceTree = "<group>"; };
+		5B712E1F21EF9415009D3A31 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +72,10 @@
 		5B712DF121EF5799009D3A31 /* MotoTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				5B712E1E21EF93DF009D3A31 /* Extensions */,
 				5B712E0921EF6914009D3A31 /* Views */,
 				5B712E0621EF5A47009D3A31 /* Storyboards */,
+				5B712E1621EF8031009D3A31 /* Services */,
 				5B712E0E21EF7168009D3A31 /* Presenters */,
 				5B712E0421EF5A10009D3A31 /* ViewControllers */,
 				5B712E0521EF5A38009D3A31 /* Models */,
@@ -90,6 +100,7 @@
 				5B712E0721EF68E3009D3A31 /* Story.swift */,
 				5B712E1221EF71EF009D3A31 /* Feed.swift */,
 				5B712E1421EF724C009D3A31 /* StoriesFeedEnum.swift */,
+				5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +136,31 @@
 				5B712E0F21EF717F009D3A31 /* StoriesPresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		5B712E1621EF8031009D3A31 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B712E1721EF814E009D3A31 /* FetchDataService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B712E1721EF814E009D3A31 /* FetchDataService */ = {
+			isa = PBXGroup;
+			children = (
+				5B712E1821EF81CC009D3A31 /* FetchDataSevice.swift */,
+				5B712E1921EF81CC009D3A31 /* NetworkFetchDataService.swift */,
+			);
+			path = FetchDataService;
+			sourceTree = "<group>";
+		};
+		5B712E1E21EF93DF009D3A31 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5B712E1F21EF9415009D3A31 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +234,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B712E1B21EF81CC009D3A31 /* NetworkFetchDataService.swift in Sources */,
 				5B712E1021EF717F009D3A31 /* StoriesPresenter.swift in Sources */,
 				5B712E1321EF71EF009D3A31 /* Feed.swift in Sources */,
+				5B712E2021EF9415009D3A31 /* UIViewController.swift in Sources */,
+				5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */,
 				5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */,
+				5B712E1A21EF81CC009D3A31 /* FetchDataSevice.swift in Sources */,
 				5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */,
 				5B712E0821EF68E3009D3A31 /* Story.swift in Sources */,
 				5B712E0C21EF6934009D3A31 /* StoryTableViewCell.swift in Sources */,
@@ -351,13 +391,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E43L926W97;
 				INFOPLIST_FILE = MotoTestProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.motorsport.MotoTestProject;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.grapheme.TestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -369,13 +410,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E43L926W97;
 				INFOPLIST_FILE = MotoTestProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.motorsport.MotoTestProject;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.grapheme.TestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

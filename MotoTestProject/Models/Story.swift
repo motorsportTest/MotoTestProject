@@ -8,6 +8,16 @@
 
 import Foundation
 
-struct Story: Codable {
-    let id: String
+struct Story: Decodable {
+    let id: Int
+}
+
+struct StoriesArray {
+    
+    let stories: [Story]
+    
+    init(ids: [Int]) {
+        stories = ids.map{Story(id: $0)}
+    }
+    
 }
