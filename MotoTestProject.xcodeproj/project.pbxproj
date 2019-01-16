@@ -21,6 +21,10 @@
 		5B712E1B21EF81CC009D3A31 /* NetworkFetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1921EF81CC009D3A31 /* NetworkFetchDataService.swift */; };
 		5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */; };
 		5B712E2021EF9415009D3A31 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E1F21EF9415009D3A31 /* UIViewController.swift */; };
+		5B712E2521EFB85A009D3A31 /* DataMappingObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E2221EFB85A009D3A31 /* DataMappingObjectService.swift */; };
+		5B712E2621EFB85A009D3A31 /* JsonDataMappingObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E2321EFB85A009D3A31 /* JsonDataMappingObjectService.swift */; };
+		5B712E2721EFB85A009D3A31 /* MappingObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E2421EFB85A009D3A31 /* MappingObjectService.swift */; };
+		5B712E2A21EFBB2C009D3A31 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712E2921EFBB2C009D3A31 /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		5B712E1921EF81CC009D3A31 /* NetworkFetchDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFetchDataService.swift; sourceTree = "<group>"; };
 		5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyURLRequest.swift; sourceTree = "<group>"; };
 		5B712E1F21EF9415009D3A31 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5B712E2221EFB85A009D3A31 /* DataMappingObjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMappingObjectService.swift; sourceTree = "<group>"; };
+		5B712E2321EFB85A009D3A31 /* JsonDataMappingObjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDataMappingObjectService.swift; sourceTree = "<group>"; };
+		5B712E2421EFB85A009D3A31 /* MappingObjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingObjectService.swift; sourceTree = "<group>"; };
+		5B712E2921EFBB2C009D3A31 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +149,9 @@
 		5B712E1621EF8031009D3A31 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5B712E2121EFB845009D3A31 /* MappingObjectService */,
 				5B712E1721EF814E009D3A31 /* FetchDataService */,
+				5B712E2921EFBB2C009D3A31 /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -161,6 +171,16 @@
 				5B712E1F21EF9415009D3A31 /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B712E2121EFB845009D3A31 /* MappingObjectService */ = {
+			isa = PBXGroup;
+			children = (
+				5B712E2221EFB85A009D3A31 /* DataMappingObjectService.swift */,
+				5B712E2421EFB85A009D3A31 /* MappingObjectService.swift */,
+				5B712E2321EFB85A009D3A31 /* JsonDataMappingObjectService.swift */,
+			);
+			path = MappingObjectService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +257,7 @@
 				5B712E1B21EF81CC009D3A31 /* NetworkFetchDataService.swift in Sources */,
 				5B712E1021EF717F009D3A31 /* StoriesPresenter.swift in Sources */,
 				5B712E1321EF71EF009D3A31 /* Feed.swift in Sources */,
+				5B712E2621EFB85A009D3A31 /* JsonDataMappingObjectService.swift in Sources */,
 				5B712E2021EF9415009D3A31 /* UIViewController.swift in Sources */,
 				5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */,
 				5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */,
@@ -244,7 +265,10 @@
 				5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */,
 				5B712E0821EF68E3009D3A31 /* Story.swift in Sources */,
 				5B712E0C21EF6934009D3A31 /* StoryTableViewCell.swift in Sources */,
+				5B712E2A21EFBB2C009D3A31 /* ApiService.swift in Sources */,
+				5B712E2721EFB85A009D3A31 /* MappingObjectService.swift in Sources */,
 				5B712E1521EF724C009D3A31 /* StoriesFeedEnum.swift in Sources */,
+				5B712E2521EFB85A009D3A31 /* DataMappingObjectService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

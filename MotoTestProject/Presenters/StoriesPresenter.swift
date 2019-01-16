@@ -19,13 +19,13 @@ protocol StoriesView: class {
 }
 
 class StoriesPresenter: StoriesPresenterProtocol{
+    typealias StoryIDs = [Int]
     
     private weak var view: StoriesView?
-    private let fetchDataService: NetworkFetchDataService!
+    private let fetchDataService = ApiService<StoryIDs>()
     
     init(view:StoriesView){
         self.view=view
-        fetchDataService = NetworkFetchDataService()
     }
     
     func selectStory(_ story: Story) {
@@ -38,22 +38,11 @@ class StoriesPresenter: StoriesPresenterProtocol{
         }
         fetchDataService.fetch(request: request){ result in
             switch result{
-            case .success(let data):
-                do{
-//                    print(String(data: data, encoding: .utf8) ?? "")
-                    let result = try JSONDecoder().decode([Int].self, from: data)
-                    let storiesArray = StoriesArray(ids: result)
-                    DispatchQueue.main.async {
-                        self.view?.setStories(storiesArray.stories)
-                    }
-                }
-                catch{
-                    print(error)
-                }
+            case .success(let storiesID):
+                let storiesArray = StoriesArray(ids: storiesID)
+                self.view?.setStories(storiesArray.stories)
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self.view?.fetchedError(error)
-                }
+                self.view?.fetchedError(error)
             }
         }
     }
