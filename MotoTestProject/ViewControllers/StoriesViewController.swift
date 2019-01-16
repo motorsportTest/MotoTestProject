@@ -10,23 +10,37 @@ import UIKit
 
 class StoriesViewController: UIViewController {
 
-    enum StoriesFeed: String, CaseIterable{
-        case top = "Top"
-        case new = "New"
-        case best = "Best"
+    @IBOutlet private weak var storyTableView: UITableView!
+    @IBOutlet private weak var storiesSegmentControl: UISegmentedControl!
+    
+    
+    private let storiesFeed = StoriesFeedEnum.allCases
+    private var storiesPresenter: StoriesPresenterProtocol!
+    
+    private let reuseCellIdentifier = "Cell"
+    private var stories = [Story](){
+        didSet{
+            storyTableView.reloadData()
+        }
     }
-    
-    @IBOutlet weak var storiesSegmentControl: UISegmentedControl!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurateController()
         configurateSegmentControl()
+        storiesPresenter.selectFeed(storiesFeed[storiesSegmentControl.selectedSegmentIndex].feed)
+    }
+    
+    //MARK: Configurate
+    
+    private func configurateController(){
+        storiesPresenter = StoriesPresenter(view: self)
     }
     
     private func configurateSegmentControl(){
         storiesSegmentControl.removeAllSegments()
-        for i in 0..<StoriesFeed.allCases.count{
-            storiesSegmentControl.insertSegment(withTitle: StoriesFeed.allCases[i].rawValue, at: i, animated: false)
+        for i in 0..<storiesFeed.count{
+            storiesSegmentControl.insertSegment(withTitle: storiesFeed[i].feed.name, at: i, animated: false)
         }
         storiesSegmentControl.selectedSegmentIndex = 0
     }
@@ -34,8 +48,35 @@ class StoriesViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func feedChanged(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
+        storiesPresenter.selectFeed(storiesFeed[sender.selectedSegmentIndex].feed)
     }
 
 }
 
+extension StoriesViewController: StoriesView{
+    func setStories(_ stories: [Story]) {
+        self.stories = stories
+    }
+}
+
+extension StoriesViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellIdentifier, for: indexPath) as! StoryTableViewCell
+        cell.configurate(story: stories[indexPath.row])
+        return cell
+    }
+    
+}
+
+extension StoriesViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        storiesPresenter.selectStory(stories[indexPath.row])
+    }
+}
