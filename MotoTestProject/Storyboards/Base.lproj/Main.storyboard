@@ -10,17 +10,59 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stories-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MotoTestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StoriesViewController" customModule="MotoTestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yy-q2-rov">
+                                <rect key="frame" x="0.0" y="64" width="375" height="64"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StL-hJ-dgz">
+                                        <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="1n8-h5-y46"/>
+                                        </constraints>
+                                    </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h2h-fm-HHU">
+                                        <rect key="frame" x="17" y="18" width="340" height="29"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="feedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cqu-PM-r2n"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="h2h-fm-HHU" firstAttribute="centerY" secondItem="2Yy-q2-rov" secondAttribute="centerY" id="CKr-Qy-8sK"/>
+                                    <constraint firstAttribute="trailing" secondItem="h2h-fm-HHU" secondAttribute="trailing" constant="18" id="H8U-dM-0A9"/>
+                                    <constraint firstAttribute="bottom" secondItem="StL-hJ-dgz" secondAttribute="bottom" id="NbG-2H-tHU"/>
+                                    <constraint firstAttribute="height" constant="64" id="gfW-zp-P7V"/>
+                                    <constraint firstAttribute="trailing" secondItem="StL-hJ-dgz" secondAttribute="trailing" id="mmf-Xo-uL5"/>
+                                    <constraint firstItem="StL-hJ-dgz" firstAttribute="leading" secondItem="2Yy-q2-rov" secondAttribute="leading" id="oab-bE-Vzf"/>
+                                    <constraint firstItem="h2h-fm-HHU" firstAttribute="leading" secondItem="2Yy-q2-rov" secondAttribute="leading" constant="17" id="txu-fN-HKW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Yy-q2-rov" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6dX-pn-3Un"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Yy-q2-rov" secondAttribute="trailing" id="9cn-S0-Mtm"/>
+                            <constraint firstItem="2Yy-q2-rov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PhQ-ul-Fgb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ebd-oB-VYC"/>
+                    <navigationItem key="navigationItem" title="Stories" id="Ebd-oB-VYC"/>
+                    <connections>
+                        <outlet property="storiesSegmentControl" destination="h2h-fm-HHU" id="uEs-aY-ZPz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
