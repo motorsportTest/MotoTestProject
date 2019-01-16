@@ -13,7 +13,7 @@ class NetworkFetchDataService: FetchDataService{
     enum NetworkError: String, LocalizedError{
         case missingData = "Fetched missing data"
         case errorServerCode = "Fetched server error"
-        case responceError = "Responce error"
+        case responseError = "Response error"
         
         var errorDescription: String? {
             return self.rawValue
@@ -47,7 +47,7 @@ class NetworkFetchDataService: FetchDataService{
                 }
                 handler(.success(data))
             }else{
-                handler(.failure(NetworkError.responceError))
+                handler(.failure(NetworkError.responseError))
             }
             }.resume()
     }
