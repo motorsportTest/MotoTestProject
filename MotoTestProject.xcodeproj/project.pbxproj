@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B36893721F075C0005B5402 /* FeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B36893621F075C0005B5402 /* FeedView.xib */; };
+		5B36893921F075CF005B5402 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893821F075CF005B5402 /* FeedView.swift */; };
+		5B36893B21F075EC005B5402 /* XIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893A21F075EC005B5402 /* XIBView.swift */; };
+		5B36893E21F076A2005B5402 /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */; };
+		5B36894021F077AF005B5402 /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */; };
 		5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF221EF5799009D3A31 /* AppDelegate.swift */; };
 		5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF421EF5799009D3A31 /* StoriesViewController.swift */; };
 		5B712DF821EF5799009D3A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B712DF621EF5799009D3A31 /* Main.storyboard */; };
@@ -28,6 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B36893621F075C0005B5402 /* FeedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedView.xib; sourceTree = "<group>"; };
+		5B36893821F075CF005B5402 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		5B36893A21F075EC005B5402 /* XIBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBView.swift; sourceTree = "<group>"; };
+		5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
+		5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
 		5B712DEF21EF5799009D3A31 /* MotoTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B712DF221EF5799009D3A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B712DF421EF5799009D3A31 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B36893521F07509005B5402 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				5B36893C21F0768A005B5402 /* Cells */,
+				5B36893621F075C0005B5402 /* FeedView.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		5B36893C21F0768A005B5402 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5B712DE621EF5799009D3A31 = {
 			isa = PBXGroup;
 			children = (
@@ -80,13 +107,14 @@
 		5B712DF121EF5799009D3A31 /* MotoTestProject */ = {
 			isa = PBXGroup;
 			children = (
-				5B712E1E21EF93DF009D3A31 /* Extensions */,
-				5B712E0921EF6914009D3A31 /* Views */,
+				5B36893521F07509005B5402 /* XIBs */,
 				5B712E0621EF5A47009D3A31 /* Storyboards */,
-				5B712E1621EF8031009D3A31 /* Services */,
-				5B712E0E21EF7168009D3A31 /* Presenters */,
+				5B712E0921EF6914009D3A31 /* Views */,
 				5B712E0421EF5A10009D3A31 /* ViewControllers */,
+				5B712E0E21EF7168009D3A31 /* Presenters */,
 				5B712E0521EF5A38009D3A31 /* Models */,
+				5B712E1621EF8031009D3A31 /* Services */,
+				5B712E1E21EF93DF009D3A31 /* Extensions */,
 				5B712DF221EF5799009D3A31 /* AppDelegate.swift */,
 				5B712DF921EF579C009D3A31 /* Assets.xcassets */,
 				5B712DFE21EF579C009D3A31 /* Info.plist */,
@@ -126,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				5B712E0A21EF691C009D3A31 /* Cells */,
+				5B36893A21F075EC005B5402 /* XIBView.swift */,
+				5B36893821F075CF005B5402 /* FeedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				5B712E0F21EF717F009D3A31 /* StoriesPresenter.swift */,
+				5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -241,8 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B36893721F075C0005B5402 /* FeedView.xib in Resources */,
 				5B712DFD21EF579C009D3A31 /* LaunchScreen.storyboard in Resources */,
 				5B712DFA21EF579C009D3A31 /* Assets.xcassets in Resources */,
+				5B36893E21F076A2005B5402 /* StoryTableViewCell.xib in Resources */,
 				5B712DF821EF5799009D3A31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B712E1B21EF81CC009D3A31 /* NetworkFetchDataService.swift in Sources */,
+				5B36893B21F075EC005B5402 /* XIBView.swift in Sources */,
 				5B712E1021EF717F009D3A31 /* StoriesPresenter.swift in Sources */,
 				5B712E1321EF71EF009D3A31 /* Feed.swift in Sources */,
 				5B712E2621EFB85A009D3A31 /* JsonDataMappingObjectService.swift in Sources */,
@@ -262,8 +296,10 @@
 				5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */,
 				5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */,
 				5B712E1A21EF81CC009D3A31 /* FetchDataSevice.swift in Sources */,
+				5B36893921F075CF005B5402 /* FeedView.swift in Sources */,
 				5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */,
 				5B712E0821EF68E3009D3A31 /* Story.swift in Sources */,
+				5B36894021F077AF005B5402 /* FeedViewPresenter.swift in Sources */,
 				5B712E0C21EF6934009D3A31 /* StoryTableViewCell.swift in Sources */,
 				5B712E2A21EFBB2C009D3A31 /* ApiService.swift in Sources */,
 				5B712E2721EFB85A009D3A31 /* MappingObjectService.swift in Sources */,

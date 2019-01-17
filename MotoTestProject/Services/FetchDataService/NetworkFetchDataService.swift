@@ -21,6 +21,7 @@ class NetworkFetchDataService: FetchDataService{
     }
     
     private var request: URLRequest?
+    var currentDataTask: URLSessionDataTask?
     
     init(request: URLRequest? = nil){
         self.request = request
@@ -33,7 +34,7 @@ class NetworkFetchDataService: FetchDataService{
     
     func fetch(handler: @escaping (FetchDataViewResult) -> ()) {
         guard let request = request else{ return }
-        URLSession.shared.dataTask(with: request){ data, response, error in
+        currentDataTask = URLSession.shared.dataTask(with: request){ data, response, error in
             if let error = error {
                 handler(.failure(error))
             } else if let httpResponse = response as? HTTPURLResponse {
@@ -49,6 +50,7 @@ class NetworkFetchDataService: FetchDataService{
             }else{
                 handler(.failure(NetworkError.responseError))
             }
-            }.resume()
+        }
+        currentDataTask?.resume()
     }
 }

@@ -45,6 +45,10 @@ class ApiService<T: Decodable>{
         }
     }
     
+    func cancel(){
+        networkFetchDataService.currentDataTask?.cancel()
+    }
+    
 }
 
 

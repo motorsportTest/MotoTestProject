@@ -10,77 +10,84 @@ import UIKit
 
 class StoriesViewController: UIViewController {
 
-    @IBOutlet private weak var storyTableView: UITableView!
-    @IBOutlet private weak var storiesSegmentControl: UISegmentedControl!
     
+    @IBOutlet private weak var feedsScrollView: UIScrollView!
+    @IBOutlet private weak var feedsSegmentControl: UISegmentedControl!
     
     private let storiesFeed = StoriesFeedEnum.allCases
-    private var storiesPresenter: StoriesPresenterProtocol!
+//    private var storiesPresenter: StoriesPresenterProtocol!
+    private var feedViews = [FeedView]()
     
-    private let reuseCellIdentifier = "Cell"
-    private var stories = [Story](){
-        didSet{
-            storyTableView.reloadData()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configurateController()
         configurateSegmentControl()
-        storiesPresenter.selectFeed(storiesFeed[storiesSegmentControl.selectedSegmentIndex].feed)
+        createFeeds()
+        changeFeed(to: 0)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutFeedViews()
+    }
+
+    private func layoutFeedViews() {
+        let bounds = feedsScrollView.bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        
+        feedsScrollView.contentSize = CGSize(width: CGFloat(feedViews.count) * width, height: height)
+        feedsScrollView.delegate = self
+        
+        for i in 0..<feedViews.count {
+            let originX: CGFloat = CGFloat(i) * width
+            feedViews[i].frame = CGRect(x: originX, y: 0, width: width, height: height)
+        }
     }
     
     //MARK: Configurate
     
     private func configurateController(){
-        storiesPresenter = StoriesPresenter(view: self)
+//        storiesPresenter = StoriesPresenter(view: self)
     }
     
     private func configurateSegmentControl(){
-        storiesSegmentControl.removeAllSegments()
+        feedsSegmentControl.removeAllSegments()
         for i in 0..<storiesFeed.count{
-            storiesSegmentControl.insertSegment(withTitle: storiesFeed[i].feed.name, at: i, animated: false)
+            feedsSegmentControl.insertSegment(withTitle: storiesFeed[i].feed.name, at: i, animated: false)
         }
-        storiesSegmentControl.selectedSegmentIndex = 0
+    }
+    
+    private func createFeeds(){
+        for i in 0..<storiesFeed.count{
+            let feedView = FeedView(frame: feedsScrollView.bounds, feed: storiesFeed[i].feed)
+            feedsScrollView.addSubview(feedView)
+            feedViews.append(feedView)
+        }
+    }
+    
+    //MARK: Change feed
+    
+    func changeFeed(to index:Int){
+        feedsScrollView.setContentOffset(CGPoint(x:feedsScrollView.bounds.width*CGFloat(index), y:0), animated: true)
+        feedsSegmentControl.selectedSegmentIndex = index
+        feedViews[feedsSegmentControl.selectedSegmentIndex].select()
     }
     
     //MARK: Actions
     
     @IBAction func feedChanged(_ sender: UISegmentedControl) {
-        storiesPresenter.selectFeed(storiesFeed[sender.selectedSegmentIndex].feed)
+        changeFeed(to: sender.selectedSegmentIndex)
     }
 
 }
 
-extension StoriesViewController: StoriesView{
-    func setStories(_ stories: [Story]) {
-        self.stories = stories
-    }
+// MARK: - UIScrollViewDelegate
+extension StoriesViewController: UIScrollViewDelegate {
     
-    func fetchedError(_ error: Error) {
-        alert(text: error.localizedDescription)
-    }
-}
-
-extension StoriesViewController: UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellIdentifier, for: indexPath) as! StoryTableViewCell
-        cell.configurate(story: stories[indexPath.row])
-        return cell
-    }
-    
-}
-
-extension StoriesViewController: UITableViewDelegate{
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        storiesPresenter.selectStory(stories[indexPath.row])
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        changeFeed(to: index)
     }
 }

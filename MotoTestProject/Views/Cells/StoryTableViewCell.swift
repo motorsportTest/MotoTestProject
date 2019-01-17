@@ -15,7 +15,7 @@ class StoryTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     func configurate(story: Story){
-        
+        titleLabel.text = String(story.id)
     }
 
 }

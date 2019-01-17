@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Feed {
+struct Feed: Hashable {
     let name: String
     let path: String
 }
