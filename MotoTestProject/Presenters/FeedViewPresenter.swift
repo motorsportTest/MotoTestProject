@@ -11,13 +11,15 @@ import Foundation
 protocol FeedViewPresenterProtocol {
     func selectStory(_ story: Story)
     func loadFeed()
+    func fetchStoryData(_ story: Story)
 }
 
 protocol FeedViewProtorol: class {
     func setStories(_ stories: [Story])
-     func fetchedError(_ error: Error)
-     func showHUD()
-     func hideHUD()
+    func didFetchedStoryData(_ StoryData: StoryData)
+    func fetchedError(_ error: Error)
+    func showHUD()
+    func hideHUD()
 }
 
 class FeedViewPresenter{
@@ -25,9 +27,10 @@ class FeedViewPresenter{
     
     private weak var view: FeedViewProtorol?
     private var storiesArray: StoriesArray?
-    private let fetchDataService = ApiService<StoryIDs>()
+    private let apiService = ApiService<StoryIDs>()
     private let feed: Feed
     private var isLoading = false
+    private var activeDownloader = [Story: StoryDownloader]()
     
     init(view:FeedViewProtorol, feed: Feed){
         self.view=view
@@ -51,7 +54,7 @@ class FeedViewPresenter{
         }
         isLoading=true
         self.view?.showHUD()
-        fetchDataService.fetch(request: request){ result in
+        apiService.fetch(request: request){ result in
             self.view?.hideHUD()
             switch result{
             case .success(let storiesID):
@@ -64,6 +67,27 @@ class FeedViewPresenter{
                 self.view?.fetchedError(error)
             }
             self.isLoading=false
+        }
+    }
+    
+    func fetchStoryData(_ story: Story){
+        guard activeDownloader[story] == nil else {
+            return
+        }
+        if let request = MyURLRequest.story(id: story.id).request{
+            let apiService = ApiService<StoryData>()
+            apiService.fetch(request: request){result in
+                switch result{
+                case .success(let storyData):
+                    //                print(self.feed.name, "success")
+                    self.view?.didFetchedStoryData(storyData)
+                case .failure(let error):
+                    print(story.id, error.localizedDescription)
+                }
+            }
+            if let dataTask = apiService.getCurrentDataTast(){
+               activeDownloader[story] = StoryDownloader(dataTask: dataTask)
+            }
         }
     }
 }

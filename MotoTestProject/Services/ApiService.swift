@@ -49,6 +49,10 @@ class ApiService<T: Decodable>{
         networkFetchDataService.currentDataTask?.cancel()
     }
     
+    func getCurrentDataTast()->URLSessionDataTask?{
+        return networkFetchDataService.currentDataTask
+    }
+    
 }
 
 

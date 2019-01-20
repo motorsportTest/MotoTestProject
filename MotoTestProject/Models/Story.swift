@@ -14,6 +14,16 @@ struct Story: Decodable {
     var storyData: StoryData?
 }
 
+extension Story: Hashable{
+    static func == (lhs: Story, rhs: Story) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 struct StoryData: Decodable{
     let id: Int
     let authorName: String?

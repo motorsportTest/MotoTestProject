@@ -42,6 +42,17 @@ class FeedView: XIBView {
 
 extension FeedView: FeedViewProtorol{
     
+    func didFetchedStoryData(_ storyData: StoryData) {
+        for i in 0..<stories.count{
+            if stories[i].id == storyData.id{
+                stories[i].storyData = storyData
+//                storyTableView.reloadData()
+                storyTableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .none)
+                return
+            }
+        }
+    }
+    
     func showHUD() {
         storyTableView.isHidden = true
         storiesActivityIndicator.isHidden = false
@@ -71,6 +82,9 @@ extension FeedView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellIdentifier, for: indexPath) as! StoryTableViewCell
         cell.configurate(story: stories[indexPath.row])
+        if stories[indexPath.row].storyData == nil{
+            feedViewPresenter.fetchStoryData(stories[indexPath.row])
+        }
         return cell
     }
     

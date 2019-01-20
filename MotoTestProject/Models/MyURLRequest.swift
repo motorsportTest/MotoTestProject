@@ -14,6 +14,7 @@ enum MyURLRequest{
     static let endOfURL = ".json"
     
     case feed(Feed)
+    case story(id: Int)
     
     var request: URLRequest?{
         guard let url = self.url else {
@@ -28,6 +29,8 @@ enum MyURLRequest{
         switch self {
         case .feed(let value):
             return URL(string: MyURLRequest.baseURL + value.path+MyURLRequest.endOfURL)
+        case .story(let id):
+            return URL(string: MyURLRequest.baseURL + "item/"+String(id)+MyURLRequest.endOfURL)
         }
     }
     

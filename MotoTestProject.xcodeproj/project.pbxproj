@@ -12,6 +12,7 @@
 		5B36893B21F075EC005B5402 /* XIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893A21F075EC005B5402 /* XIBView.swift */; };
 		5B36893E21F076A2005B5402 /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */; };
 		5B36894021F077AF005B5402 /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */; };
+		5B3C479921F4DD8500B6931B /* StoryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C479821F4DD8500B6931B /* StoryDownloader.swift */; };
 		5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF221EF5799009D3A31 /* AppDelegate.swift */; };
 		5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF421EF5799009D3A31 /* StoriesViewController.swift */; };
 		5B712DF821EF5799009D3A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B712DF621EF5799009D3A31 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		5B36893A21F075EC005B5402 /* XIBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBView.swift; sourceTree = "<group>"; };
 		5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
 		5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
+		5B3C479821F4DD8500B6931B /* StoryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDownloader.swift; sourceTree = "<group>"; };
 		5B712DEF21EF5799009D3A31 /* MotoTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B712DF221EF5799009D3A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B712DF421EF5799009D3A31 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5B712E0721EF68E3009D3A31 /* Story.swift */,
+				5B3C479821F4DD8500B6931B /* StoryDownloader.swift */,
 				5B712E1221EF71EF009D3A31 /* Feed.swift */,
 				5B712E1421EF724C009D3A31 /* StoriesFeedEnum.swift */,
 				5B712E1C21EF8346009D3A31 /* MyURLRequest.swift */,
@@ -291,6 +294,7 @@
 				5B36893B21F075EC005B5402 /* XIBView.swift in Sources */,
 				5B712E1021EF717F009D3A31 /* StoriesPresenter.swift in Sources */,
 				5B712E1321EF71EF009D3A31 /* Feed.swift in Sources */,
+				5B3C479921F4DD8500B6931B /* StoryDownloader.swift in Sources */,
 				5B712E2621EFB85A009D3A31 /* JsonDataMappingObjectService.swift in Sources */,
 				5B712E2021EF9415009D3A31 /* UIViewController.swift in Sources */,
 				5B712E1D21EF8346009D3A31 /* MyURLRequest.swift in Sources */,

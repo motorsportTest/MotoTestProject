@@ -10,18 +10,21 @@ import Foundation
 
 class JsonDataMappingObjectService<T: Decodable>:DataMappingObjectService<T>{
     
-    let encoder: JSONDecoder
+    let decoder: JSONDecoder
     
     convenience override init(){
-        self.init(encoder: JSONDecoder())
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        self.init(decoder: decoder)
     }
     
-    init(encoder: JSONDecoder){
-        self.encoder = encoder
+    init(decoder: JSONDecoder){
+        self.decoder = decoder
     }
     
     override func mappingObject(source: Data) throws -> T {
-        let result = try encoder.decode(T.self, from: source)
+//        print(String(data: source, encoding: .utf8) ?? "")
+        let result = try decoder.decode(T.self, from: source)
         return result
     }
 }
