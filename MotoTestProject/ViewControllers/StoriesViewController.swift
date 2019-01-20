@@ -61,7 +61,7 @@ class StoriesViewController: UIViewController {
     
     private func createFeeds(){
         for i in 0..<storiesFeed.count{
-            let feedView = FeedView(frame: feedsScrollView.bounds, feed: storiesFeed[i].feed)
+            let feedView = FeedView(frame: feedsScrollView.bounds, feed: storiesFeed[i].feed, viewController: self)
             feedsScrollView.addSubview(feedView)
             feedViews.append(feedView)
         }

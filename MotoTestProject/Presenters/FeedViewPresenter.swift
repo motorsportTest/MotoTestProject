@@ -6,7 +6,7 @@
 //  Copyright © 2019 Motosport. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FeedViewPresenterProtocol {
     func selectStory(_ story: Story)
@@ -25,6 +25,7 @@ protocol FeedViewProtorol: class {
 class FeedViewPresenter{
     typealias StoryIDs = [Int]
     
+    private var router: Router!
     private weak var view: FeedViewProtorol?
     private var storiesArray: StoriesArray?
     private let apiService = ApiService<StoryIDs>()
@@ -32,13 +33,17 @@ class FeedViewPresenter{
     private var isLoading = false
     private var activeDownloader = [Story: StoryDownloader]()
     
-    init(view:FeedViewProtorol, feed: Feed){
+    init(view:FeedViewProtorol, feed: Feed, viewController:UIViewController){
         self.view=view
         self.feed=feed
+        self.router = Router(viewController: viewController)
     }
     
     func selectStory(_ story: Story) {
-        
+        guard story.storyData != nil else {
+            return
+        }
+        router.openStory(story)
     }
     
     func loadFeed() {

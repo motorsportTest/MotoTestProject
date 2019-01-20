@@ -13,6 +13,7 @@
 		5B36893E21F076A2005B5402 /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */; };
 		5B36894021F077AF005B5402 /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */; };
 		5B3C479921F4DD8500B6931B /* StoryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C479821F4DD8500B6931B /* StoryDownloader.swift */; };
+		5B3C479B21F4EC8500B6931B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C479A21F4EC8500B6931B /* Router.swift */; };
 		5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF221EF5799009D3A31 /* AppDelegate.swift */; };
 		5B712DF521EF5799009D3A31 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B712DF421EF5799009D3A31 /* StoriesViewController.swift */; };
 		5B712DF821EF5799009D3A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B712DF621EF5799009D3A31 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		5B36893D21F076A2005B5402 /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
 		5B36893F21F077AF005B5402 /* FeedViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
 		5B3C479821F4DD8500B6931B /* StoryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDownloader.swift; sourceTree = "<group>"; };
+		5B3C479A21F4EC8500B6931B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5B712DEF21EF5799009D3A31 /* MotoTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B712DF221EF5799009D3A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B712DF421EF5799009D3A31 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				5B712E1621EF8031009D3A31 /* Services */,
 				5B712E1E21EF93DF009D3A31 /* Extensions */,
 				5B712DF221EF5799009D3A31 /* AppDelegate.swift */,
+				5B3C479A21F4EC8500B6931B /* Router.swift */,
 				5B712DF921EF579C009D3A31 /* Assets.xcassets */,
 				5B712DFE21EF579C009D3A31 /* Info.plist */,
 			);
@@ -302,6 +305,7 @@
 				5B712E1A21EF81CC009D3A31 /* FetchDataSevice.swift in Sources */,
 				5B36893921F075CF005B5402 /* FeedView.swift in Sources */,
 				5B712DF321EF5799009D3A31 /* AppDelegate.swift in Sources */,
+				5B3C479B21F4EC8500B6931B /* Router.swift in Sources */,
 				5B712E0821EF68E3009D3A31 /* Story.swift in Sources */,
 				5B36894021F077AF005B5402 /* FeedViewPresenter.swift in Sources */,
 				5B712E0C21EF6934009D3A31 /* StoryTableViewCell.swift in Sources */,

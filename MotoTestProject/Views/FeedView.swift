@@ -21,9 +21,9 @@ class FeedView: XIBView {
         }
     }
     
-    init(frame: CGRect, feed: Feed) {
+    init(frame: CGRect, feed: Feed, viewController: UIViewController) {
         super.init(frame: frame)
-        self.feedViewPresenter = FeedViewPresenter(view: self, feed: feed)
+        self.feedViewPresenter = FeedViewPresenter(view: self, feed: feed, viewController: viewController)
     }
     
     required init?(coder aDecoder: NSCoder) {
