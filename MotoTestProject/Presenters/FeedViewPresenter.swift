@@ -79,11 +79,11 @@ class FeedViewPresenter{
             apiService.fetch(request: request){result in
                 switch result{
                 case .success(let storyData):
-                    //                print(self.feed.name, "success")
                     self.view?.didFetchedStoryData(storyData)
                 case .failure(let error):
                     print(story.id, error.localizedDescription)
                 }
+                self.activeDownloader[story] = nil
             }
             if let dataTask = apiService.getCurrentDataTast(){
                activeDownloader[story] = StoryDownloader(dataTask: dataTask)
