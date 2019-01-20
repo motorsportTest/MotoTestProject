@@ -8,10 +8,14 @@
 
 import Foundation
 
-struct Story: Decodable {
+class Story: Decodable {
     let id: Int
     
     var storyData: StoryData?
+    
+    init(id: Int){
+        self.id = id
+    }
 }
 
 extension Story: Hashable{
@@ -61,7 +65,7 @@ struct StoriesArray {
     let stories: [Story]
     
     init(ids: [Int]) {
-        stories = ids.map{Story.init(id: $0, storyData: nil)}
+        stories = ids.map{Story.init(id: $0)}
     }
     
 }
